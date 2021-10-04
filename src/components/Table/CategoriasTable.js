@@ -22,7 +22,7 @@ export default function CategoriasTable() {
       );
 
       const categoriasModificado = response.data.data.map((categoria) => {
-        if (categoria.ativo == "S") {
+        if (categoria.ativo === "S") {
           categoria.ativo_formatado = "ativo";
         } else {
           categoria.ativo_formatado = "inativo";

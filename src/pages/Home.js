@@ -254,7 +254,7 @@ function Home() {
 
   function DescricaoValor({ tipoLancamento, situacao }) {
     let descricao = "";
-    if (tipoLancamento === "RECEITA" && situacao == "RESOLVIDO") {
+    if (tipoLancamento === "RECEITA" && situacao === "RESOLVIDO") {
       descricao = "recebido"
     } else if (tipoLancamento === "RECEITA" && situacao === "PENDENTE") {
       descricao = "não recebido"
@@ -379,7 +379,7 @@ function Home() {
   function SituacaoLancamentoOpcao({tipoLancamento, situacao, lancamentoId}) {
     let tituloBotao = "";
     let iconeLike = false;
-    if (tipoLancamento === "RECEITA" && situacao == "RESOLVIDO") {
+    if (tipoLancamento === "RECEITA" && situacao === "RESOLVIDO") {
       tituloBotao = "Marcar como não-recebido"
       iconeLike = true
     } else if (tipoLancamento === "RECEITA" && situacao === "PENDENTE") {
