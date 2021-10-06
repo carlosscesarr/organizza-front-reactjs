@@ -104,7 +104,7 @@ function Header() {
                 />
               </div>
               <h3 className="mx-2 text-sm font-medium text-gray-700 dark:text-gray-200 md:hidden">
-                Khatab wedaa
+                Usuário
               </h3>
             </button>
 
