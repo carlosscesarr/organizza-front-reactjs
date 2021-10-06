@@ -18,13 +18,14 @@ const routes = [
     name: 'Gráficos', // name that appear in Sidebar,
     exact: true
   },
+  /*
   {
     path: '/app/categorias', // the url
     icon: 'CardsIcon', // the component being exported from icons/index.js
     name: 'Categorias', // name that appear in Sidebar
     exact: true
   },
-  /*{
+  {
     icon: 'PagesIcon',
     name: 'Pages',
     routes: [
