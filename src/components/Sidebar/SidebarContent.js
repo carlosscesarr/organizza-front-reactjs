@@ -1,6 +1,6 @@
 import React from "react";
 import routes from "../../routes/sidebar";
-import { NavLink, Route, Link, useRouteMatch } from "react-router-dom";
+import { NavLink, Route, Link } from "react-router-dom";
 import * as Icons from "../../icons";
 import SidebarSubmenu from "./SidebarSubmenu";
 

@@ -8,7 +8,7 @@ import ImageDark from "../assets/img/login-office-dark.jpeg";
 function Login() {
   let history = useHistory();
   const [email, setEmail] = useState("");
-  const [cpf, setCpf] = useState("");
+  const [senha, setSenha] = useState("");
   const [loading, setLoading] = useState(false);
 
   const [errors, setErrors] = useState([]);
@@ -19,63 +19,51 @@ function Login() {
     try {
       const response = await api.post("/v1/auth/login", {
         email,
-        cpf,
+        senha,
       });
 
       if (response.status === 200) {
         const { data } = response;
-        setTimeout(() => {
-          resetForm();
-          setLoading(false);
-          localStorage.setItem("@controle-financeiro/token", data.acesso_token);
-          history.push("/app");
-        }, 400);
+        resetForm();
+        setLoading(false);
+        localStorage.setItem("@controle-financeiro/token", data.acesso_token);
+        history.push("/app");
       }
     } catch (error) {
-      setTimeout(() => {
-        const { response } = error;
-        if (response) {
-          if (response.status === 400) {
-            const { data } = response;
-            if (data.codigo && data.codigo === "validacao") {
-              const { campos } = data;
-              const errors = campos.map((a, b) => {
-                return a.mensagem;
-              });
-              setErrors(errors);
-              window.scrollTo(0, 0);
-            }
-          } else if (response.status === 404) {
-            setErrors(["Email e/ou senha inválidos!"]);
-          } else {
-            setErrors(["Falha ao tentar realizar sua requisição"]);
+      const { response } = error;
+      if (response) {
+        if (response.status === 400) {
+          const { data } = response;
+          if (data.codigo && data.codigo === "validacao") {
+            const { campos } = data;
+            const errors = campos.map((a, b) => {
+              return a.mensagem;
+            });
+            setErrors(errors);
+            window.scrollTo(0, 0);
           }
+        } else if (response.status === 404) {
+          setErrors(["Email e/ou senha inválidos!"]);
         } else {
           setErrors(["Falha ao tentar realizar sua requisição"]);
         }
-        setLoading(false);
-      }, 400);
+      } else {
+        setErrors(["Falha ao tentar realizar sua requisição"]);
+      }
+      setLoading(false);
     }
   }
 
   const resetForm = () => {
     setEmail("");
-    setCpf("");
+    setSenha("");
   };
 
   return (
     <div className="flex items-center min-h-screen p-6 bg-gray-50 dark:bg-gray-900">
-      <div className="flex-1 h-full max-w-4xl mx-auto overflow-hidden bg-white rounded-lg shadow-xl dark:bg-gray-800">
-        <div className="flex flex-col overflow-y-auto md:flex-row">
-          <div className="h-32 md:h-auto md:w-1/2">
-            <img
-              aria-hidden="true"
-              className="block object-cover w-full h-full"
-              src={ImageDark}
-              alt="Office"
-            />
-          </div>
-          <main className="flex items-center justify-center p-6 sm:p-12 md:w-1/2">
+      <div className="flex-1 h-full max-w-md mx-auto overflow-hidden bg-white rounded-lg shadow-xl dark:bg-gray-800">
+          
+          <main className="flex items-center justify-center p-6 sm:p-12">
             <div className="w-full">
               <h1 className="mb-4 text-xl font-semibold text-gray-700 dark:text-gray-200">
                 Login
@@ -103,15 +91,15 @@ function Login() {
                   />
                 </label>
                 <label className="block text-sm text-gray-700 dark:text-gray-400 mt-4">
-                  <span>CPF</span>
+                  <span>Senha</span>
                   <input
                     className="block w-full text-sm focus:outline-none dark:text-gray-300 form-input leading-5 focus:border-purple-400 dark:border-gray-600 focus:shadow-outline-purple dark:focus:border-gray-600 dark:focus:shadow-outline-gray dark:bg-gray-700 mt-1"
-                    type="text"
-                    name="cpf"
-                    value={cpf}
+                    type="password"
+                    name="senha"
+                    value={senha}
                     autocomplete="off"
-                    onChange={(e) => setCpf(e.target.value)}
-                    placeholder="000.000.000-00"
+                    onChange={(e) => setSenha(e.target.value)}
+                    placeholder="******"
                   />
                 </label>
                 <button
@@ -144,7 +132,6 @@ function Login() {
               </p>
             </div>
           </main>
-        </div>
       </div>
     </div>
   );

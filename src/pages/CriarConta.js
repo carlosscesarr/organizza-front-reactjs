@@ -11,7 +11,7 @@ function CriaConta() {
   let history = useHistory();
   const [nome, setNome] = useState("");
   const [email, setEmail] = useState("");
-  const [cpf, setCpf] = useState("");
+  const [senha, setSenha] = useState("");
   const [loading, setLoading] = useState(false);
 
   const [errors, setErrors] = useState([]);
@@ -24,64 +24,51 @@ function CriaConta() {
       const response = await api.post("/v1/usuarios", {
         nome,
         email,
-        cpf,
+        senha,
       });
 
       if (response.status === 201) {
-        setTimeout(() => {
-          toast.success("Conta criada com sucesso!", {
-            position: "top-right",
-            autoClose: 1000,
-            hideProgressBar: false,
-            onClose: () => history.push("/login"),
-          });
-          resetForm();
-          setLoading(false);
-        }, 400);
+        toast.success("Conta criada com sucesso!", {
+          position: "top-right",
+          autoClose: 1000,
+          hideProgressBar: false,
+          onClose: () => history.push("/login"),
+        });
+        resetForm();
+        setLoading(false);
       }
     } catch (error) {
-      setTimeout(() => {
-        const { response } = error;
-        if (response) {
-          if (response && response.status === 400) {
-            const { data } = response;
-            if (data.codigo && data.codigo === "validacao") {
-              const { campos } = data;
-              const errors = campos.map((a, b) => {
-                return a.mensagem;
-              });
-              setErrors(errors);
-              window.scrollTo(0, 0);
-            }
-          } else {
-            setErrors(["Falha ao tentar realizar sua requisição"]);
+      const { response } = error;
+      if (response) {
+        if (response && response.status === 400) {
+          const { data } = response;
+          if (data.codigo && data.codigo === "validacao") {
+            const { campos } = data;
+            const errors = campos.map((a, b) => {
+              return a.mensagem;
+            });
+            setErrors(errors);
+            window.scrollTo(0, 0);
           }
         } else {
           setErrors(["Falha ao tentar realizar sua requisição"]);
         }
-        setLoading(false)
-      }, 400);
+      } else {
+        setErrors(["Falha ao tentar realizar sua requisição"]);
+      }
+      setLoading(false)
     }
   }
 
   const resetForm = () => {
     setNome("");
     setEmail("");
-    setCpf("");
+    setSenha("");
   };
   return (
     <div className="flex items-center min-h-screen p-6 bg-gray-50 dark:bg-gray-900">
-      <div className="flex-1 h-full max-w-4xl mx-auto overflow-hidden bg-white rounded-lg shadow-xl dark:bg-gray-800">
-        <div className="flex flex-col overflow-y-auto md:flex-row">
-          <div className="h-32 md:h-auto md:w-1/2">
-            <img
-              aria-hidden="true"
-              className="block object-cover w-full h-full"
-              src={ImageDark}
-              alt="Office"
-            />
-          </div>
-          <main className="flex items-center justify-center p-6 sm:p-12 md:w-1/2">
+      <div className="flex-1 h-full max-w-md mx-auto overflow-hidden bg-white rounded-lg shadow-xl dark:bg-gray-800">
+          <main className="flex items-center justify-center p-6 sm:p-12">
             <div className="w-full">
               <h1 className="mb-4 text-xl font-semibold text-gray-700 dark:text-gray-200">
                 Criar conta
@@ -121,15 +108,15 @@ function CriaConta() {
                   />
                 </label>
                 <label className="block text-sm text-gray-700 dark:text-gray-400 mt-4">
-                  <span>CPF</span>
+                  <span>Senha</span>
                   <input
                     className="block w-full text-sm focus:outline-none dark:text-gray-300 form-input leading-5 focus:border-purple-400 dark:border-gray-600 focus:shadow-outline-purple dark:focus:border-gray-600 dark:focus:shadow-outline-gray dark:bg-gray-700 mt-1"
-                    type="text"
-                    value={cpf}
+                    type="password"
+                    value={senha}
                     required
                     autocomplete="new-password"
-                    onChange={(e) => setCpf(e.target.value)}
-                    placeholder="123.456.789-00"
+                    onChange={(e) => setSenha(e.target.value)}
+                    placeholder="******"
                   />
                 </label>
 
@@ -166,7 +153,6 @@ function CriaConta() {
               </p>
             </div>
           </main>
-        </div>
       </div>
       <ToastContainer />
     </div>
