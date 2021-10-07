@@ -624,7 +624,7 @@ function Home() {
       
       <button
           onClick={abrirModal}
-          className="absolute right-2 bottom-2 flex items-center justify-center p-4 text-white transition-colors duration-200 transform bg-purple-600 rounded-full dark:bg-gray-800 hover:bg-purple-700 dark:hover:bg-gray-700 focus:outline-none focus:bg-purple-500 dark:focus:bg-gray-700"
+          className="absolute right-2 bottom-2 flex items-center justify-center p-4 text-white transition-colors duration-200 transform bg-purple-600 rounded-full dark:bg-gray-700 hover:bg-purple-700 dark:hover:bg-gray-600 focus:outline-none focus:bg-purple-500 dark:focus:bg-gray-700"
         >
         <PlusIcon className="w-6 h-6 text-white" />
       </button>
