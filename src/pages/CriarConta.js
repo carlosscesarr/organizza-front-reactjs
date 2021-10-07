@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { Link, useHistory } from "react-router-dom";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import FooterLogin from "../components/FooterLogin";
 import { LooadingIcon } from "./../icons";
 import api from "./../services/api";
 
@@ -152,6 +153,7 @@ function CriaConta() {
             </div>
           </main>
       </div>
+      <FooterLogin />
       <ToastContainer />
     </div>
   );

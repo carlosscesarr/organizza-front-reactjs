@@ -39,6 +39,7 @@ import { ReactComponent as LikeDownIcon } from './likeDown.svg'
 import { ReactComponent as ReceiveMoney } from './receiveMoney.svg'
 import { ReactComponent as SwitchHorizintal } from './switchHorizintal.svg'
 import { ReactComponent as ChevronRight } from './chevronRight.svg'
+import { ReactComponent as LinkedinIcon } from './linkedin.svg'
 
 export {
   ButtonsIcon,
@@ -81,5 +82,6 @@ export {
   LikeUpIcon,
   ReceiveMoney,
   SwitchHorizintal,
-  ChevronRight
+  ChevronRight,
+  LinkedinIcon
 }
