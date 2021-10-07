@@ -288,42 +288,38 @@ function Home() {
       });
 
       if (response.status === 201) {
-        setTimeout(() => {
-          toast.success("Lançamento criado com sucesso!", {
-            position: "top-right",
-            autoClose: 1000,
-            hideProgressBar: false,
-          });
+        toast.success("Lançamento criado com sucesso!", {
+          position: "top-right",
+          autoClose: 1000,
+          hideProgressBar: false,
+        });
 
-          fecharModal();
-          loadLancamentos();
-          resetFormLancamento();
-          setLoading(false);
-        }, 500);
+        fecharModal();
+        loadLancamentos();
+        resetFormLancamento();
+        setLoading(false);
       }
     } catch (error) {
-      setTimeout(() => {
-        const { response } = error;
-        if (response) {
-          if (response && response.status === 400) {
-            const { data } = response;
-            if (data.codigo && data.codigo === "validacao") {
-              const { campos } = data;
-              const errors = campos.map((a, b) => {
-                return a.mensagem;
-              });
+      const { response } = error;
+      if (response) {
+        if (response && response.status === 400) {
+          const { data } = response;
+          if (data.codigo && data.codigo === "validacao") {
+            const { campos } = data;
+            const errors = campos.map((a, b) => {
+              return a.mensagem;
+            });
 
-              setErrors(errors);
-              window.scrollTo(0, 0);
-            }
-          } else {
-            setErrors(["Falha ao tentar realizar sua requisição"]);
+            setErrors(errors);
+            window.scrollTo(0, 0);
           }
         } else {
           setErrors(["Falha ao tentar realizar sua requisição"]);
         }
-        setLoading(false);
-      }, 400);
+      } else {
+        setErrors(["Falha ao tentar realizar sua requisição"]);
+      }
+      setLoading(false);
     }
   }
 
@@ -487,91 +483,90 @@ function Home() {
   return (
     <>
       <PageTitle>Lançamentos</PageTitle>
-      <div className="">
-        <div className="w-full mb-6">
-          <SelecionaData />
-        </div>
-        <div className="overflow-auto grid grid-cols-1 gap-6 mb-5 md:grid-cols-2 xl:grid-cols-3">
-          <div className="rounded-lg shadow-xs overflow-hidden bg-white dark:bg-gray-800">
-            <div className="p-4 flex items-center">
-              <div className="p-3 rounded-full text-green-500 dark:text-green-100 bg-green-100 dark:bg-green-500 mr-4">
-                <ReceiveMoney className="w-5 h-5" />
-              </div>
-              <div>
-                <p className="mb-2 text-sm font-medium text-gray-600 dark:text-gray-400">
-                  Receita
-                </p>
-                <p className="text-md font-semibold text-gray-700 dark:text-gray-200">
-                  R$ {balanco?.total_receita_mod}
-                </p>
-              </div>
-              <div className="flex-1 justify-center items-center flex">
-                <span><ChevronRight/> </span>
-              </div>
-              <div>
-              <p className="mb-2 text-sm font-medium text-gray-600 dark:text-gray-400">
-                  Previsto
-                </p>
-                <p className="text-md font-semibold text-gray-700 dark:text-gray-200">
-                  R$ {balanco?.total_receita_previsto_mod}
-                </p>
-              </div>
+      <div className="w-full mb-6">
+        <SelecionaData />
+      </div>
+      <div className="overflow-auto grid grid-cols-1 gap-6 mb-5 md:grid-cols-2 xl:grid-cols-3">
+        <div className="rounded-lg shadow-xs overflow-hidden bg-white dark:bg-gray-800">
+          <div className="p-4 flex items-center">
+            <div className="p-3 rounded-full text-green-500 dark:text-green-100 bg-green-100 dark:bg-green-500 mr-4">
+              <ReceiveMoney className="w-5 h-5" />
             </div>
-          </div>
-          <div className="rounded-lg shadow-xs overflow-hidden bg-white dark:bg-gray-800">
-            <div className="p-4 flex items-center">
-              <div className="p-3 rounded-full text-red-500 dark:text-red-100 bg-red-100 dark:bg-red-500 mr-4">
-                <ExclamationIcon className="w-5 h-5" />
-              </div>
-              <div>
-                <p className="mb-2 text-sm font-medium text-gray-600 dark:text-gray-400">
-                  Despesas
-                </p>
-                <p className="text-md font-semibold text-gray-700 dark:text-gray-200">
-                  R$ {balanco?.total_despesa_mod}
-                </p>
-              </div>
-              <div className="flex-1 justify-center items-center flex">
-                <span><ChevronRight/> </span>
-              </div>
-              <div>
+            <div>
               <p className="mb-2 text-sm font-medium text-gray-600 dark:text-gray-400">
-                  Previsto
-                </p>
-                <p className="text-md font-semibold text-gray-700 dark:text-gray-200">
-                  R$ {balanco?.total_despesa_previsto_mod}
-                </p>
-              </div>
+                Receita
+              </p>
+              <p className="text-md font-semibold text-gray-700 dark:text-gray-200">
+                R$ {balanco?.total_receita_mod}
+              </p>
             </div>
-          </div>
-          <div className="rounded-lg shadow-xs overflow-hidden bg-white dark:bg-gray-800">
-            <div className="p-4 flex items-center">
-              <div className="p-3 rounded-full text-blue-500 dark:text-blue-100 bg-blue-100 dark:bg-blue-500 mr-4">
-                <CheckIcon className="w-5 h-5" />
-              </div>
-              <div>
-                <p className="mb-2 text-sm font-medium text-gray-600 dark:text-gray-400">
-                  Saldo
-                </p>
-                <p className="text-md font-semibold text-gray-700 dark:text-gray-200">
-                  R$ {balanco?.total_saldo_mod}
-                </p>
-              </div>
-              <div className="flex-1 justify-center items-center flex">
-                <span><ChevronRight/> </span>
-              </div>
-              <div>
-              <p className="mb-2 text-sm font-medium text-gray-600 dark:text-gray-400">
-                  Previsto
-                </p>
-                <p className="text-md font-semibold text-gray-700 dark:text-gray-200">
-                  R$ {balanco?.total_saldo_previsto_mod}
-                </p>
-              </div>
+            <div className="flex-1 justify-center items-center flex">
+              <span><ChevronRight/> </span>
+            </div>
+            <div>
+            <p className="mb-2 text-sm font-medium text-gray-600 dark:text-gray-400">
+                Previsto
+              </p>
+              <p className="text-md font-semibold text-gray-700 dark:text-gray-200">
+                R$ {balanco?.total_receita_previsto_mod}
+              </p>
             </div>
           </div>
         </div>
-        <div className="overflow-auto lg:overflow-visible ">
+        <div className="rounded-lg shadow-xs overflow-hidden bg-white dark:bg-gray-800">
+          <div className="p-4 flex items-center">
+            <div className="p-3 rounded-full text-red-500 dark:text-red-100 bg-red-100 dark:bg-red-500 mr-4">
+              <ExclamationIcon className="w-5 h-5" />
+            </div>
+            <div>
+              <p className="mb-2 text-sm font-medium text-gray-600 dark:text-gray-400">
+                Despesas
+              </p>
+              <p className="text-md font-semibold text-gray-700 dark:text-gray-200">
+                R$ {balanco?.total_despesa_mod}
+              </p>
+            </div>
+            <div className="flex-1 justify-center items-center flex">
+              <span><ChevronRight/> </span>
+            </div>
+            <div>
+            <p className="mb-2 text-sm font-medium text-gray-600 dark:text-gray-400">
+                Previsto
+              </p>
+              <p className="text-md font-semibold text-gray-700 dark:text-gray-200">
+                R$ {balanco?.total_despesa_previsto_mod}
+              </p>
+            </div>
+          </div>
+        </div>
+        <div className="rounded-lg shadow-xs overflow-hidden bg-white dark:bg-gray-800">
+          <div className="p-4 flex items-center">
+            <div className="p-3 rounded-full text-blue-500 dark:text-blue-100 bg-blue-100 dark:bg-blue-500 mr-4">
+              <CheckIcon className="w-5 h-5" />
+            </div>
+            <div>
+              <p className="mb-2 text-sm font-medium text-gray-600 dark:text-gray-400">
+                Saldo
+              </p>
+              <p className="text-md font-semibold text-gray-700 dark:text-gray-200">
+                R$ {balanco?.total_saldo_mod}
+              </p>
+            </div>
+            <div className="flex-1 justify-center items-center flex">
+              <span><ChevronRight/> </span>
+            </div>
+            <div>
+            <p className="mb-2 text-sm font-medium text-gray-600 dark:text-gray-400">
+                Previsto
+              </p>
+              <p className="text-md font-semibold text-gray-700 dark:text-gray-200">
+                R$ {balanco?.total_saldo_previsto_mod}
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div className="overflow-auto lg:overflow-visible ">
           <table
             style={{ borderSpacing: "0 8px" }}
             className="overflow-auto w-full table text-gray-400 border-separate space-y-6 text-sm table-default"
@@ -594,7 +589,7 @@ function Home() {
             <tbody>
               {lancamentos.data?.map((lancamento, index) => {
                 return (
-                  <tr key={String(index)} className="bg-white">
+                  <tr key={String(lancamento.id)} className="bg-white">
                     <td className="p-3">
                       <div className="flex align-items-center">
                         <div className="ml-3">
@@ -614,9 +609,11 @@ function Home() {
                     <td className="p-3">
                       <StatusLancamento situacao={lancamento.situacao} />
                     </td>
-                    <td className="p-3 flex items-center">
-                      <SituacaoLancamentoOpcao lancamentoId={lancamento.id} tipoLancamento={lancamento.tipo_lancamento} situacao={lancamento.situacao}/>
-                      <button onClick={() => canceladoLancamento(lancamento.id)} className="p-1 rounded-lg focus:outline-none"><TrashIcon className="w-6 h-6 text-red-500"/></button>
+                    <td className="p-3">
+                      <div className="flex items-center">
+                        <SituacaoLancamentoOpcao lancamentoId={lancamento.id} tipoLancamento={lancamento.tipo_lancamento} situacao={lancamento.situacao}/>
+                        <button onClick={() => canceladoLancamento(lancamento.id)} className="p-1 rounded-lg focus:outline-none"><TrashIcon className="w-6 h-6 text-red-500"/></button>
+                      </div>
                     </td>
                   </tr>
                 );
@@ -624,7 +621,6 @@ function Home() {
             </tbody>
           </table>
         </div>
-      </div>
       
       <button
           onClick={abrirModal}

@@ -120,7 +120,7 @@ export default function CategoriasTable() {
           <tbody>
             {categorias.data?.map((categoria, index) => {
               return (
-                <tr className="bg-white">
+                <tr key={`${categoria.id}`} className="bg-white">
                   <td className="p-3">
                     <div className="flex align-items-center">
                       <div className="ml-3">

@@ -1,13 +1,32 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+  /* barra Scroll navegador*/
 
-.table-default tr td:nth-child(n+5) {
-    border-radius: 0 .625rem .625rem 0;
+::-webkit-scrollbar {
+  width: 6px;
+  height: 8px;
+  -webkit-border-radius: 16px;
 }
-.table-default tr th:nth-child(n+5) {
-      
-    border-radius: 0 .625rem .625rem 0;
+
+::-webkit-scrollbar-track-piece {
+  background-color: #ffffff;
+  -webkit-border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:vertical {
+  height: 5px;
+  background-color: #666;
+  -webkit-border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:horizontal {
+  width: 2px;
+  background-color: #666;
+  -webkit-border-radius: 3px;
+}
+.table-default tbody tr td:last-child {
+  border-radius: 0 .625rem .625rem 0;
+}
+.table-default tr th:last-child {
+  border-radius: 0 .625rem .625rem 0;
 }
 .table-default tr td:nth-child(1) {
   border-radius: .625rem 0 0 .625rem;
