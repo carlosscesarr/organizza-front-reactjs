@@ -33,6 +33,7 @@ Este projeto foi desenvolvido usando as seguintes tecnologias:
 - [Javascript](https://developer.mozilla.org/pt-BR/docs/Web/JavaScript)
 - [Tailwindcss](https://tailwindcss.com/)
 - [Axios](https://axios-http.com/docs/intro)
+- [Context API](https://pt-br.reactjs.org/docs/context.html)
 
 ## 🔥 Preview DESKTOP
 <h2>Modo light</h2>
