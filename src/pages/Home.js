@@ -449,7 +449,7 @@ function Home() {
                 </svg>
               </button>
             </li>
-            <li className="text-center min-w-40 text-lg font-semibold text-gray-600">
+            <li className="text-center min-w-40 text-lg font-semibold dark:text-gray-300 text-gray-600">
               <span className="ml-1">{mesAnoSelecionadoText}</span>
             </li>
             <li>
@@ -700,6 +700,7 @@ function Home() {
                 onKeyUp={(e) => hanbleKeyUpMaskMoeda(e)}
                 onChange={(e) => setValorLancamento(e.target.value)}
                 placeholder="0,00"
+                required
                 inputMode="numeric"
               />
             </label>
@@ -710,7 +711,7 @@ function Home() {
               <input
                 className="block w-full text-sm focus:outline-none dark:text-gray-300 form-input leading-5 focus:border-purple-400 dark:border-gray-600 focus:shadow-outline-purple dark:focus:border-gray-600 dark:focus:shadow-outline-gray dark:bg-gray-700 mt-1"
                 type="text"
-                autocomplete="off"
+                autoComplete="off"
                 value={descricaoLancamento}
                 onChange={(e) => setDescricaoLancamento(e.target.value)}
                 placeholder=""
@@ -738,6 +739,7 @@ function Home() {
                 className="block w-full text-sm focus:outline-none dark:text-gray-300 form-input leading-5 focus:border-purple-400 dark:border-gray-600 focus:shadow-outline-purple dark:focus:border-gray-600 dark:focus:shadow-outline-gray dark:bg-gray-700 mt-1"
                 type="date"
                 value={dataLancamento}
+                required
                 onChange={(e) => setDataLancamento(e.target.value)}
                 placeholder=""
               />

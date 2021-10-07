@@ -88,7 +88,7 @@ function CriaConta() {
                     type="text"
                     value={nome}
                     required
-                    autocomplete="new-password"
+                    autoComplete="new-password"
                     onChange={(e) => setNome(e.target.value)}
                     placeholder="john"
                   />
@@ -100,7 +100,7 @@ function CriaConta() {
                     type="email"
                     value={email}
                     required
-                    autocomplete="new-password"
+                    autoComplete="new-password"
                     onChange={(e) => setEmail(e.target.value)}
                     placeholder="john@doe.com"
                   />
@@ -112,7 +112,7 @@ function CriaConta() {
                     type="password"
                     value={senha}
                     required
-                    autocomplete="new-password"
+                    autoComplete="new-password"
                     onChange={(e) => setSenha(e.target.value)}
                     placeholder="******"
                   />

@@ -156,7 +156,7 @@ const CategoriasAdd = () => {
                 name="descricao"
                 onChange={(e) => setDescricao(e.target.value)}
                 value={descricao}
-                autocomplete="off"
+                autoComplete="off"
                 placeholder="Digite aqui o descricao da categoria"
                 type="text"
                 required

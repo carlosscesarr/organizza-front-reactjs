@@ -127,7 +127,7 @@ const CategoriasAdd = () => {
                 placeholder="Digite aqui o descricao do produto"
                 type="text"
                 required
-                autocomplete="off"
+                autoComplete="off"
                 className="block w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-300 rounded-md dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-purple-400 dark:focus:border-gray-500 focus:outline-none focus:ring focus:ring-purple-300"
               />
             </div>
