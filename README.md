@@ -25,10 +25,6 @@
   <img alt="Listagem de lançamento e balanço" src="https://drive.google.com/uc?export=download&id=13U7df3IfFnBISWM0i22TkjKFusHydTZo" width="600px">
 </p>
 
-# Getting Started with Create React App
-
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
-
 ## 🧪 Tecnologias
 
 Este projeto foi desenvolvido usando as seguintes tecnologias:
