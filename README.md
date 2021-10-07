@@ -1,70 +1,79 @@
+<h2 align="center">
+    Organizza - Controle de despesas e receitas
+</h2>
+
+<p align="center">
+  <a href="#tecnologias">Tecnologia</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
+  <a href="#-preview">Preview</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
+  <a href="#-começando">Começando</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
+  <a href="#-projeto">Projeto</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
+  <!--<a href="#-layout">Layout</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;-->
+  <!--<a href="#-license">License</a>-->
+</p>
+
+<p align="center">
+  <img  src="https://img.shields.io/static/v1?label=license&message=MIT&color=5965E0&labelColor=121214" alt="License">
+  
+  <img src="https://img.shields.io/github/forks/carlosscesarr/gerador-senha-react-native?label=forks&message=MIT&color=5965E0&labelColor=121214" alt="Forks">     
+
+  <img src="https://img.shields.io/github/stars/carlosscesarr/gerador-senha-react-native?label=stars&message=MIT&color=5965E0&labelColor=121214" alt="Stars">
+</p>
+
+<br>
+
+<p align="center">
+  <img alt="Listagem de lançamento e balanço" src="https://drive.google.com/uc?export=download&id=13U7df3IfFnBISWM0i22TkjKFusHydTZo" width="600px">
+</p>
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-## Available Scripts
+## 🧪 Tecnologias
 
-In the project directory, you can run:
+Este projeto foi desenvolvido usando as seguintes tecnologias:
 
-### `yarn start`
+- [React JS](https://reactjs.org)
+- [Javascript](https://developer.mozilla.org/pt-BR/docs/Web/JavaScript)
+- [Tailwindcss](https://tailwindcss.com/)
+- [Axios](https://axios-http.com/docs/intro)
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+## 🔥 Preview DESKTOP
+<h2>Modo light</h2>
+  <img alt="Listagem de lançamento e balanço" src="https://drive.google.com/uc?export=download&id=13U7df3IfFnBISWM0i22TkjKFusHydTZo" width="600px">
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+<h2>Modo dark</h2>
+  <img alt="Listagem de lançamento e balanço" src="https://drive.google.com/uc?export=download&id=1PCQIAcexiRe8LcbPn8QMSiWrpxFecLkz" width="600px">
 
-### `yarn test`
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## 🔥 Preview ONLINE
+- [Projeto online ->](https://organizza.netlify.app/)https://organizza.netlify.app
 
-### `yarn build`
+## Projeto
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+Iniciei esse projeto com o objetivo de aperfeiçoar meus conhecimentos no ReactJS, além de utilizá-lo para organizar melhor minhas despesas e receitas.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## 🚀 Começando
 
-### `yarn eject`
+Clone o projeto e acesse a pasta
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+```bash
+$ git clone https://github.com/carlosscesarr/organizza-front-reactjs.git && cd organizza-front-reactjs
+```
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+Siga os passos abaixo
+```bash
+# Instalando dependencias
+$ yarn install
+ - Instala todas as dependencias de pacotes que o projeto precisa para funcionar
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+# Configure variável de ambiente REACT_APP_URL_API no arquivo .env
+ 
+# Iniciando o projeto
+$ yarn start
+```
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+---
 
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `yarn build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+<p align="center">Made with 💜 by César Lima</p>
