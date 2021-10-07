@@ -150,10 +150,10 @@ function CriaConta() {
                   Você já possui uma conta? Login
                 </Link>
               </p>
+              <FooterLogin />
             </div>
           </main>
       </div>
-      <FooterLogin />
       <ToastContainer />
     </div>
   );

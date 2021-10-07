@@ -129,10 +129,11 @@ function Login() {
                 Criar conta
               </Link>
             </p>
+          <FooterLogin />
           </div>
         </main>
       </div>
-      <FooterLogin />
+      
     </div>
   );
 }

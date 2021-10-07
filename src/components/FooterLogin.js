@@ -3,13 +3,8 @@ import { GithubIcon, LinkedinIcon } from "./../icons";
 
 export default function FooterLogin() {
   return (
-    <div className="absolute right-0 w-full flex flex-col items-center justify-center bottom-16">
-      <div>
-        <h1 className="mb-4 font-semibold text-gray-600">
-          Desenvolvido por César Lima Dev.
-        </h1>
-      </div>
-      <div className="flex">
+    <div className="w-full flex flex-col items-center justify-center mt-10">
+      <div className="flex mb-2">
         <a
           target="_blank"
           title="Github do projeto"
@@ -21,11 +16,16 @@ export default function FooterLogin() {
         <a
           target="_blank"
           title="Linkedin"
-          href={{pathname: "https://www.linkedin.com/in/cesarlimadev/"}}
+          href={{ pathname: "https://www.linkedin.com/in/cesarlimadev/" }}
           className="text-gray-600"
         >
           <LinkedinIcon className="w-6 h-6" />
         </a>
+      </div>
+      <div>
+        <h2 className="font-semibold text-gray-600">
+          Desenvolvido por César Lima Dev.
+        </h2>
       </div>
     </div>
   );
