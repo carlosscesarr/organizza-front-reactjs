@@ -5,8 +5,6 @@ import "react-toastify/dist/ReactToastify.css";
 import { LooadingIcon } from "./../icons";
 import api from "./../services/api";
 
-import ImageDark from "./../assets/img/create-account-office-dark.jpeg";
-
 function CriaConta() {
   let history = useHistory();
   const [nome, setNome] = useState("");

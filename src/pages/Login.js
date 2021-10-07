@@ -1,9 +1,7 @@
 import React, { useState } from "react";
 import { Link, useHistory } from "react-router-dom";
 import api from "./../services/api";
-
 import { LooadingIcon } from "./../icons";
-import ImageDark from "../assets/img/login-office-dark.jpeg";
 
 function Login() {
   let history = useHistory();
